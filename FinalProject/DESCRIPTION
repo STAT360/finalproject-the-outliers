@@ -1,0 +1,12 @@
+Package: FinalProject
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Tyler",
+           family = "Reiland",
+           role = c("aut", "cre"),
+           email = "reil8911@stthomas.edu")
+Description: What the package does (one paragraph).
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
