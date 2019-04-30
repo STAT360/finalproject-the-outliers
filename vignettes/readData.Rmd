@@ -1,0 +1,25 @@
+---
+title: "readData"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{readData}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(FinalProject)
+```
+
+```{r}
+  library(readxl)
+
+  SurgeryData <- read_excel("../data-raw/Medicare_Provider_Charge_Inpatient_DRGALL_FY2014 (1).xlsx", skip = 5)
+```
