@@ -25,11 +25,14 @@ library(FinalProject)
 
   SurgeryData <- read_excel("../inst/extdata/Medicare_Provider_Charge_Inpatient_DRGALL_FY2014 (1).xlsx", skip = 5)
   
+  saveRDS(SurgeryData, file = "../data/SurgeryData.rds")
+  
   SurgeryData %>% 
     group_by(`Provider State`) %>%
     summarise(averagePay = mean(`Average Total Payments`)) %>% 
     arrange(desc(averagePay)) %>% 
     mutate(StateName = tolower(abbr2state(`Provider State`))) -> StateVsAvgPay
     
+  saveRDS(StateVsAvgPay, file = "../data/StateVsAvgPay.rds")
     
 ```
