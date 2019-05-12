@@ -15,7 +15,9 @@ Roxygen: list(markdown = TRUE)
 Imports: 
     readxl,
     dplyr,
-    openintro
+    openintro,
+    devtools,
+    fiftystater
 Suggests: 
     knitr,
     rmarkdown
