@@ -13,7 +13,9 @@ LazyData: true
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 Imports: 
-    readxl
+    readxl,
+    dplyr,
+    openintro
 Suggests: 
     knitr,
     rmarkdown
