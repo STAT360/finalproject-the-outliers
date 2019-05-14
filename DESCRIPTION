@@ -18,7 +18,8 @@ Imports:
     openintro,
     devtools,
     fiftystater,
-    mapproj
+    mapproj,
+    ggplot2
 Suggests: 
     knitr,
     rmarkdown

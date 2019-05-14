@@ -1,6 +1,3 @@
-library(ggplot2)
-library(fiftystater)
-
 #' createMap
 #' 
 #' Creates a new map using fiftystater based off of given dataframe, variable, title, and subtitle
