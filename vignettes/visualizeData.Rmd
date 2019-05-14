@@ -22,7 +22,31 @@ library(FinalProject)
 ```{r}
   library(ggplot2)
   library(fiftystater)
+
+createMap <- function (df, var, scale_title, plot_title){
+  low_color='gray100' 
+  high_color="gray0"
+  scale_title = scale_title
+  num_vec<-eval(substitute(var),df)
+
+  map1 <- ggplot(df, aes(map_id = StateName)) + 
+  # map points to the fifty_states shape data
+  geom_map(aes(fill = num_vec), map = fifty_states) + 
+  expand_limits(x = fifty_states$long, y = fifty_states$lat) +
+  coord_map() +
+  scale_fill_continuous(low = low_color, high= high_color, guide = guide_colorbar(title = scale_title)) +
+  scale_x_continuous(breaks = NULL) + 
+  scale_y_continuous(breaks = NULL) +
+  labs(x = "", y = "") +
+  theme(legend.position = "right", panel.background = element_blank()) +
+  ggtitle(plot_title)
   
+}
+  
+createMap(StateVsAvgCost, averageCost, "Test", "Test2")->map_test
+
+map_test
+
   low_color='gray100' 
   high_color="gray0"
   scale_title = 'Average total cost'
