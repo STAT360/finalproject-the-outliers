@@ -22,7 +22,7 @@ library(FinalProject)
 ```{r}
 avg_per_state<-createMap(StateVsAvgCost, averageCost, "Average total cost", "Average cost of hospital procedures by state")
 
-num_discharges_heart<-createMap(StateVsNumProcedures, numberOfDischarges, "Number of heart transplants", "Number of Heart Transplants by State",'To visualize the frequency of the most expensive procedure.')
+num_discharges_heart<-createMap(StateVsNumHeartTransplants, numberOfDischarges, "Number of heart transplants", "Number of Heart Transplants by State",'To visualize the frequency of the most expensive procedure.')
 
 total_discharges<-createMap(StateVsNumProcedures, numberOfDischarges, "Number of procedures", "Number of Procedures by State")
 
