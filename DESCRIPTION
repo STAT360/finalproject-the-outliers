@@ -25,5 +25,8 @@ Suggests:
     rmarkdown
 Depends:
     ggplot2,
-    fiftystater
+    fiftystater,
+    readxl,
+    openintro,
+    dplyr
 VignetteBuilder: knitr

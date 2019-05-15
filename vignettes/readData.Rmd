@@ -18,14 +18,16 @@ knitr::opts_chunk$set(
 library(FinalProject)
 ```
 
+Before we begin our data wrangling, we need to read in our data from our excel file.
 ```{r}
-  library(readxl)
-  library(dplyr)
-  library(openintro)
 
   SurgeryData <- read_excel("../inst/extdata/Medicare_Provider_Charge_Inpatient_DRGALL_FY2014 (1).xlsx", skip = 5)
-  
-  
+
+```
+
+
+First we want to find the average cost for a hospital visit per state. Dplyr functions like group_by, summarise, arrange, and mutate allow us to morph the data into what we need. We use the function "tolower" to convert state abbreviations into their full names so they will be easy to pass into our mapping function later.
+```{r}
   
   ### Make dataset for state vs. average cost of hospital visit  
   SurgeryData %>% 
@@ -33,14 +35,21 @@ library(FinalProject)
     summarise(averageCost = mean(`Average Total Payments`)) %>% 
     arrange(desc(averageCost)) %>% 
     mutate(StateName = tolower(abbr2state(`Provider State`))) -> StateVsAvgCost
-    
+```
+
+
+Next, we want to find the most expensive procedure across all the hospitals. We use dplyr functions to accomplish this. Our findings show that Heart transplants with complications are the most expensive.
+```{r}  
   
   ### Steps to find most expensive procedure
   SurgeryData %>% 
     group_by(`DRG Definition`) %>% 
     summarise(averageCost = mean(`Average Total Payments`)) %>% 
     arrange(desc(averageCost))
-  
+```
+
+Now that we know what procedure is the most expensive, we want to see what states perform that procedure the most. This could let us see if the states that do the most heart transplants also cost the most per procedure overall by comparing it to our first map.
+```{r}  
   ### Make dataset for State vs. number of heart transplants w/ complications (the most expensive procedure)
   SurgeryData %>% 
     group_by(`Provider State`) %>% 
@@ -48,14 +57,17 @@ library(FinalProject)
     summarise(numberOfDischarges = sum(`Total Discharges`)) %>% 
     arrange(desc(numberOfDischarges)) %>% 
     mutate(StateName = tolower(abbr2state(`Provider State`))) -> StateVsNumHeartTransplants
+```
   
+Finally, we created a dataset to see which states perform the most procedures based on which states discharge the most patients. Again, we use dplyr functions to "wrangle" our original data.  
+```{r}
   ### Make dataset for State vs. total number of procedures.
   SurgeryData %>% 
     group_by(`Provider State`) %>%
     summarise(numberOfDischarges = sum(`Total Discharges`)) %>% 
     arrange(desc(numberOfDischarges)) %>% 
     mutate(StateName = tolower(abbr2state(`Provider State`))) -> StateVsNumProcedures
-  
+ ``` 
     
   
 ```

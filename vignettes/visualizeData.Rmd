@@ -19,6 +19,9 @@ library(FinalProject)
 ```
 
 
+Now that we have wrangled our data to fit the mappings we want to create, we can pass them into our created function to create our map graphs.
+We created three graphs: one to show the average procedure cost per state, one to show the states that perform the most heart transplants, and one to show which states discharge the most patients overall.
+
 ```{r}
 avg_per_state<-createMap(StateVsAvgCost, averageCost, "Average total cost", "Average cost of hospital procedures by state")
 
