@@ -20,10 +20,10 @@ createMap <- function (df, var, scale_title, plot_title, subtitle="", low_color=
   scale_title = scale_title
   num_vec<-eval(substitute(var),df)
   
-  ggplot(df, aes(map_id = StateName)) + 
+  ggplot2::ggplot(df, ggplot2::aes(map_id = StateName)) + 
     # map points to the fifty_states shape data
-    geom_map(aes(fill = num_vec), map = fifty_states) + 
-    expand_limits(x = fifty_states$long, y = fifty_states$lat) +
+    ggplot2::geom_map(aes(fill = num_vec), map = fiftystater::fifty_states) + 
+    expand_limits(x = fiftystater::fifty_states$long, y = fiftystater::fifty_states$lat) +
     coord_map() +
     scale_fill_continuous(low = low_color, high= high_color, guide = guide_colorbar(title = scale_title)) +
     scale_x_continuous(breaks = NULL) + 

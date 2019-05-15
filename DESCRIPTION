@@ -23,4 +23,7 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown
+Depends:
+    ggplot2,
+    fiftystater
 VignetteBuilder: knitr

@@ -25,7 +25,6 @@ library(FinalProject)
 
   SurgeryData <- read_excel("../inst/extdata/Medicare_Provider_Charge_Inpatient_DRGALL_FY2014 (1).xlsx", skip = 5)
   
-  saveRDS(SurgeryData, file = "../data/SurgeryData.rds")
   
   
   ### Make dataset for state vs. average cost of hospital visit  
@@ -35,7 +34,6 @@ library(FinalProject)
     arrange(desc(averageCost)) %>% 
     mutate(StateName = tolower(abbr2state(`Provider State`))) -> StateVsAvgCost
     
-  saveRDS(StateVsAvgCost, file = "../data/StateVsAvgCost.rds")
   
   ### Steps to find most expensive procedure
   SurgeryData %>% 
@@ -51,8 +49,6 @@ library(FinalProject)
     arrange(desc(numberOfDischarges)) %>% 
     mutate(StateName = tolower(abbr2state(`Provider State`))) -> StateVsNumHeartTransplants
   
-  saveRDS(StateVsNumHeartTransplants, file = "../data/StateVsNumHeartTransplants.rds")
-  
   ### Make dataset for State vs. total number of procedures.
   SurgeryData %>% 
     group_by(`Provider State`) %>%
@@ -60,7 +56,6 @@ library(FinalProject)
     arrange(desc(numberOfDischarges)) %>% 
     mutate(StateName = tolower(abbr2state(`Provider State`))) -> StateVsNumProcedures
   
-   saveRDS(StateVsNumProcedures, file = "../data/StateVsNumProcedures.rds")
     
   
 ```
