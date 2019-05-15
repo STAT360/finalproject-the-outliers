@@ -28,5 +28,6 @@ Depends:
     fiftystater,
     readxl,
     openintro,
-    dplyr
+    dplyr,
+    scales
 VignetteBuilder: knitr

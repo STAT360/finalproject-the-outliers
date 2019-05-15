@@ -23,7 +23,7 @@ Now that we have wrangled our data to fit the mappings we want to create, we can
 We created three graphs: one to show the average procedure cost per state, one to show the states that perform the most heart transplants, and one to show which states discharge the most patients overall.
 
 ```{r}
-avg_per_state<-createMap(StateVsAvgCost, averageCost, "Average total cost", "Average cost of hospital procedures by state")
+avg_per_state<-createMap(StateVsAvgCost, averageCost, "Average total cost", "Average cost of hospital procedures by state", scale_format = dollar)
 
 num_discharges_heart<-createMap(StateVsNumHeartTransplants, numberOfDischarges, "Number of heart transplants", "Number of Heart Transplants by State",'To visualize the frequency of the most expensive procedure.')
 

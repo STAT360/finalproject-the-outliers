@@ -9,6 +9,7 @@
 #' @param subtitle plot subtitle default is an empty string
 #' @param low_color lightest color for mapping, default = 'gray100'
 #' @param high_color darkest color for mapping, default = 'gray0'
+#' @param scale_format changes the scale's formatting, default = comma (not scientific notation)
 #'
 #' @return returns a fiftystater map 
 #' @export
@@ -16,16 +17,16 @@
 #' @examples
 #' avg_per_state<-createMap(StateVsAvgCost, averageCost, "Average total cost", "Average cost of hospital procedures by state")
 #' 
-createMap <- function (df, var, scale_title, plot_title, subtitle="", low_color='gray100', high_color="gray0"){
+createMap <- function (df, var, scale_title, plot_title, subtitle="", low_color='gray100', high_color="gray0", scale_format = comma){
   scale_title = scale_title
   num_vec<-eval(substitute(var),df)
   
-  ggplot2::ggplot(df, ggplot2::aes(map_id = StateName)) + 
+  ggplot(df, aes(map_id = StateName)) + 
     # map points to the fifty_states shape data
-    ggplot2::geom_map(aes(fill = num_vec), map = fiftystater::fifty_states) + 
-    expand_limits(x = fiftystater::fifty_states$long, y = fiftystater::fifty_states$lat) +
+    ggplot2::geom_map(aes(fill = num_vec), map = fifty_states) + 
+    expand_limits(x = fifty_states$long, y = fifty_states$lat) +
     coord_map() +
-    scale_fill_continuous(low = low_color, high= high_color, guide = guide_colorbar(title = scale_title)) +
+    scale_fill_continuous(low = low_color, high= high_color, guide = guide_colorbar(title = scale_title), labels = scale_format) +
     scale_x_continuous(breaks = NULL) + 
     scale_y_continuous(breaks = NULL) +
     labs(x = "", y = "") +

@@ -5,7 +5,7 @@
 \title{createMap}
 \usage{
 createMap(df, var, scale_title, plot_title, subtitle = "",
-  low_color = "gray100", high_color = "gray0")
+  low_color = "gray100", high_color = "gray0", scale_format = comma)
 }
 \arguments{
 \item{df}{dataframe}
@@ -21,6 +21,8 @@ createMap(df, var, scale_title, plot_title, subtitle = "",
 \item{low_color}{lightest color for mapping, default = 'gray100'}
 
 \item{high_color}{darkest color for mapping, default = 'gray0'}
+
+\item{scale_format}{changes the scale's formatting, default = comma (not scientific notation)}
 }
 \value{
 returns a fiftystater map
