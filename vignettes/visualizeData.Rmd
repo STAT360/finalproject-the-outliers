@@ -31,7 +31,6 @@ num_discharges_heart<-createMap(StateVsNumHeartTransplants, numberOfDischarges, 
 
 total_discharges<-createMap(StateVsNumProcedures, numberOfDischarges, "Number of procedures", "Number of Procedures by State")
 
-
 avg_per_state
 num_discharges_heart
 total_discharges

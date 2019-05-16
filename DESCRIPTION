@@ -30,4 +30,6 @@ Depends:
     openintro,
     dplyr,
     scales
+Remotes:
+    wmurphyrd/fiftystater
 VignetteBuilder: knitr
